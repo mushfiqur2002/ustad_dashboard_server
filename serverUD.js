@@ -1,14 +1,14 @@
 const express = require("express");
 require("dotenv").config();
 const mongoose = require("mongoose");
-const cors = require("cors"); // Corrected `cors`
+const cors = require("cors"); 
 const bodyParser = require("body-parser");
 
 const app = express();
-const port = process.env.PORT || 3600; // Use PORT from environment or default to 3600
+const port = process.env.PORT || 3600;
 
 // Middleware
-app.use(cors()); // Use CORS to handle cross-origin requests
+app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
