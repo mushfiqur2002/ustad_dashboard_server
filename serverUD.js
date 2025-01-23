@@ -1,14 +1,14 @@
 const express = require("express");
 require("dotenv").config();
 const mongoose = require("mongoose");
-const cors = require("cors"); 
+const cors = require("cors"); // Corrected `cors`
 const bodyParser = require("body-parser");
 
 const app = express();
-const port = process.env.PORT || 3600;
+const port = process.env.PORT || 3600; // Use PORT from environment or default to 3600
 
 // Middleware
-app.use(cors());
+app.use(cors()); // Use CORS to handle cross-origin requests
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
@@ -23,14 +23,15 @@ mongoose.connect(mongoURI, {
 
 // Mongoose Schema and Model
 const formSchema = new mongoose.Schema({
-  image: { type: String, required: true },
+  photo: { type: String, required: true },
   name: { type: String, required: true },
   designation: { type: String, required: true },
   current: { type: Array, default: [] },
   bio: { type: String, required: true },
   education: { type: Array, default: [] },
-  researchAreas: { type: Array, default: [] },
-  socialLinks: {
+  research_areas: { type: Array, default: [] },
+  company_role:{ type: String, required: true},
+  social_links: {
     facebook: { type: String },
     twitter: { type: String },
     linkedin: { type: String },
